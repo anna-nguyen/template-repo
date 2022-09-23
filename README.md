@@ -15,3 +15,5 @@
 **`4-figures`:** folder containing scripts to produce plots
 
 **`5-sbatch`:** folder containing bash scripts to run project files
+
+**`renv`:** folder containing configuration files for renv, a tool for package version control

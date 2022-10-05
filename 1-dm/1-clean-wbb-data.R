@@ -9,13 +9,6 @@ rm(list = ls())
 # Configure directories, load libraries and base functions
 source(paste0(here::here(), "/0-config.R"))
 
-
-box_search("washb-bangladesh-merged-diarr_offset.RDS") %>% box_read() %>% 
-  select(clusterid, block, tr, diar7d, ageyrs,               
-         sex, HHwealth_quart, ppt_weekavg_1weeklag, heavyrain_1weeklag) %>% 
-  sample_n(1000) %>% 
-  saveRDS(paste0(local_box_path, "/example_wash_data.RDS"))
-
 #--------------------------------------------
 # Load data
 #--------------------------------------------

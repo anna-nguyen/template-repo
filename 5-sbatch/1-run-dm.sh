@@ -13,12 +13,11 @@
 module purge 
 module load R/4.0.2
 
-sbatch_dir="5-sbatch/"
-cd $HOME/example-repo/$sbatch_dir
+cd $HOME/example-repo/
 
-for sh_script in `ls *.sh`
+subdir="1-dm/"
+
+for r_script in `ls $subdir*.R`
 do 
-  if [ $sh_script != "run-project.sh" ]; then
-     sh ./$sh_script
-  fi
+  R CMD BATCH --no-save $r_script ${r_script%.*}.out
 done

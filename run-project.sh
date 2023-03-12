@@ -21,16 +21,15 @@ cd $HOME/example-repo/
 # By default, when no parameters are provided, run all folders numbered 1-9
 if [ $# -eq 0 ];
 then
-  folders=$(ls -d *[1-9]*)
+  folders=$(ls -d [1-9]*)
 else
   # Otherwise, read parameters
-  folders="$@"
+  folders=$@
 fi
 
 # Iterate through default folders or folders passed in as parameters
-for i in $folders; do 
-  subdir=$i/
-  for r_script in `ls $subdir*.R`   # Run all R scripts in sub-directory
+for subdir in $folders; do
+  for r_script in `ls $subdir/*.R`   # Run all R scripts in sub-directory
     do 
       R CMD BATCH --no-save $r_script ${r_script%.*}.out
     done
